@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+// specify the package we want to use for our generated Java classes.
+package co.edu.udem.isv.grpc;
+option java_multiple_files = true;
+option java_package = "co.edu.udem.isv.grpc";
+option java_outer_classname = "HelloWorldProto";
+
+service MyService {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Sumar (OperacionRequest) returns (OperacionReply) {}
+  rpc Restar (OperacionRequest) returns (OperacionReply) {}
+  rpc Multiplicar (OperacionRequest) returns (OperacionReply) {}
+  rpc Dividir (OperacionRequest) returns (OperacionReply) {}
+}
+message HelloRequest {
+  string name = 1;
+  string lastname = 2;
+  int32 age = 3;
+}
+message HelloReply {
+  string message = 1;
+}
+message OperacionRequest {
+  int32 numero1 = 1;
+  int32 numero2 = 2;
+}
+
+message OperacionReply {
+  int32 resultado = 1;
+}
